@@ -1,11 +1,11 @@
-# Saia da Teoria — site institucional
+# Saia da Teoria institutional site
 
-Landing page oficial de [saiadateoria.com](https://saiadateoria.com), criada como um site estático, leve e sem dependências.
+Official static website for [saiadateoria.com](https://saiadateoria.com). It is intentionally lightweight and dependency-free.
 
-## Desenvolvimento local
+## Local development
 
-Abra `index.html` diretamente ou use qualquer servidor HTTP estático.
+Open `index.html` directly or serve the directory with any static HTTP server.
 
-## Publicação
+## Deployment
 
-O projeto é compatível com deploy direto na Vercel. O aplicativo fica separado em [app.saiadateoria.com](https://app.saiadateoria.com).
+The project deploys to Vercel. The private application is hosted separately at [app.saiadateoria.com](https://app.saiadateoria.com).
