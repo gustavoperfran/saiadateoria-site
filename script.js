@@ -5,7 +5,7 @@ transition.className = 'page-transition';
 transition.setAttribute('aria-hidden', 'true');
 transition.innerHTML = `
   <div class="transition-brand">
-    <img src="/logo.png" alt="" />
+    <div class="transition-lockup"><img src="/brand-icon.png" alt="" /><span><b>saia</b> <em>da teoria</em></span></div>
     <span class="transition-spinner"></span>
     <p>Opening your workspace...</p>
   </div>`;
