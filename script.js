@@ -7,7 +7,7 @@ transition.innerHTML = `
   <div class="transition-brand">
     <img src="/logo.png" alt="" />
     <span class="transition-spinner"></span>
-    <p>Opening your workspace…</p>
+    <p>Opening your workspace...</p>
   </div>`;
 document.body.appendChild(transition);
 
