@@ -14,6 +14,60 @@ document.body.appendChild(transition);
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let navigating = false;
 
+const navigation = document.querySelector('.nav');
+if (navigation) {
+  const menuButton = document.createElement('button');
+  menuButton.className = 'menu-button';
+  menuButton.type = 'button';
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-controls', 'mobile-menu');
+  menuButton.setAttribute('aria-label', 'Open menu');
+  menuButton.innerHTML = '<span></span><span></span>';
+
+  const mobileMenu = document.createElement('div');
+  mobileMenu.id = 'mobile-menu';
+  mobileMenu.className = 'mobile-menu';
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenu.innerHTML = `
+    <a href="/#features">Features</a>
+    <a href="/#how-it-works">How it works</a>
+    <a href="/security">Security</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:contact@saiadateoria.com">Contact</a>
+    <a class="mobile-app-link" href="https://app.saiadateoria.com">Open app <span>↗</span></a>`;
+
+  const closeMenu = () => {
+    navigation.classList.remove('menu-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open menu');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('mobile-menu-open');
+  };
+
+  menuButton.addEventListener('click', () => {
+    const opening = menuButton.getAttribute('aria-expanded') !== 'true';
+    navigation.classList.toggle('menu-open', opening);
+    menuButton.setAttribute('aria-expanded', String(opening));
+    menuButton.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+    mobileMenu.setAttribute('aria-hidden', String(!opening));
+    document.body.classList.toggle('mobile-menu-open', opening);
+  });
+
+  mobileMenu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+
+  navigation.insertBefore(menuButton, navigation.querySelector(':scope > .button'));
+  navigation.appendChild(mobileMenu);
+}
+
 document.addEventListener('click', (event) => {
   const link = event.target.closest('a[href]');
   if (!link || event.defaultPrevented || navigating) return;
