@@ -3,6 +3,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const transition = document.createElement('div');
 transition.className = 'page-transition';
 transition.setAttribute('aria-hidden', 'true');
+transition.setAttribute('role', 'status');
 transition.innerHTML = `
   <div class="transition-brand">
     <div class="transition-lockup"><img src="/brand-icon.png" alt="" /><span><b>saia</b> <em>da teoria</em></span></div>
@@ -11,7 +12,6 @@ transition.innerHTML = `
   </div>`;
 document.body.appendChild(transition);
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let navigating = false;
 
 const navigation = document.querySelector('.nav');
@@ -89,17 +89,16 @@ document.addEventListener('click', (event) => {
     transition.classList.add('is-visible');
     transition.setAttribute('aria-hidden', 'false');
     document.body.classList.add('is-opening-app');
-    window.setTimeout(() => window.location.assign(destination.href), reduceMotion.matches ? 120 : 700);
+    window.requestAnimationFrame(() => window.location.assign(destination.href));
     return;
   }
 
-  document.body.classList.add('is-leaving');
-  window.setTimeout(() => window.location.assign(destination.href), reduceMotion.matches ? 0 : 180);
+  window.location.assign(destination.href);
 });
 
 window.addEventListener('pageshow', () => {
   navigating = false;
-  document.body.classList.remove('is-leaving', 'is-opening-app');
+  document.body.classList.remove('is-opening-app');
   transition.classList.remove('is-visible');
   transition.setAttribute('aria-hidden', 'true');
 });
