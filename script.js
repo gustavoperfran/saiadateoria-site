@@ -34,8 +34,8 @@ if (navigation) {
     <a href="/security">Security</a>
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
-    <a href="mailto:contact@saiadateoria.com">Contact</a>
-    <a class="mobile-app-link" href="https://app.saiadateoria.com">Open app <span>↗</span></a>`;
+    <a href="mailto:contact@saiadateoria.com?subject=Request%20access%20to%20Saia%20da%20Teoria">Request access</a>
+    <a class="mobile-app-link" href="https://app.saiadateoria.com">Sign in <span>↗</span></a>`;
 
   const closeMenu = () => {
     navigation.classList.remove('menu-open');
