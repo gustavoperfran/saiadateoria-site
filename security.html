@@ -22,7 +22,7 @@
 
   <main>
     <section class="security-hero">
-      <div><a class="breadcrumb" href="/">← Home</a><p class="eyebrow"><i></i> Privacy and security</p><h1>How we protect your data.</h1><p>We use technical and operational controls across the application, API and database. Access is limited to what is required to run the service.</p></div>
+      <div><a class="breadcrumb" href="/">← Home</a><p class="eyebrow"><i></i> Privacy and security</p><h1>How we protect your data.</h1><p>We use layered technical and operational controls across the application, API and database. Access is restricted by role and workspace, and our controls are reviewed as the product evolves.</p></div>
       <aside aria-label="Security principles"><span>Our approach</span><strong>Minimise data.</strong><strong>Limit access.</strong><strong>Protect every connection.</strong></aside>
     </section>
 
@@ -35,10 +35,10 @@
     <section class="security-details">
       <div class="details-heading"><p class="section-label">How protection works</p><h2>Practical controls across the platform.</h2><p>Saia da Teoria is operated by <strong>GPF IT SOLUTIONS PTY LTD</strong> (ABN 57 638 578 140). Our controls evolve with the product and its regulatory obligations.</p></div>
       <div class="details-list">
-        <article><span>01</span><div><h3>Authentication and sessions</h3><p>User authentication is provided through Supabase Auth. Application access tokens are kept in memory rather than long-term browser storage. Sessions expire, and inactive sessions are automatically ended.</p></div></article>
-        <article><span>02</span><div><h3>Workspace isolation</h3><p>Each customer workspace is isolated by tenant identifiers in the API and database. Database Row Level Security provides an additional control. Authorised support access is read-only where possible, role-restricted and recorded.</p></div></article>
-        <article><span>03</span><div><h3>Bank connectivity</h3><p>Bank connectivity is being prepared using Basiq’s hosted consent experience. API credentials remain on the server, webhook signatures are verified, and only approved data scopes required for balances and transactions are requested.</p></div></article>
-        <article><span>04</span><div><h3>Data minimisation and monitoring</h3><p>We aim to collect only the information required for requested features. Security-relevant access and operational events are logged to support investigation and incident response.</p></div></article>
+        <article><span>01</span><div><h3>Authentication and sessions</h3><p>Authentication is handled by a specialist identity provider. Application access tokens are kept in memory rather than persistent browser storage, reducing exposure after the browser session ends.</p></div></article>
+        <article><span>02</span><div><h3>Workspace isolation</h3><p>Every financial-data request is scoped to the authenticated customer workspace. API tenant checks are backed by database Row Level Security, and authorised administrative access is role-restricted and logged.</p></div></article>
+        <article><span>03</span><div><h3>Bank connectivity status</h3><p>Bank connectivity remains an administrator-only pre-production pilot. The implementation keeps provider credentials server-side and validates signed webhook events, but live CDR connections will not be offered until an approved access arrangement is in place.</p></div></article>
+        <article><span>04</span><div><h3>Data minimisation and monitoring</h3><p>We limit collection to information needed for requested product features. Security-relevant administrative access and operational events are recorded to support investigation and incident response.</p></div></article>
       </div>
     </section>
 
@@ -47,10 +47,10 @@
       <div><p>Email <a href="mailto:contact@saiadateoria.com">contact@saiadateoria.com</a>. Do not include passwords, bank credentials or unnecessary personal information. We will acknowledge credible reports and investigate them promptly.</p><a class="button button-gold" href="mailto:contact@saiadateoria.com">Report a security issue <span>→</span></a></div>
     </section>
 
-    <section class="security-note"><strong>An important limitation</strong><p>No online service can guarantee absolute security. We continually review our controls as the platform, threat landscape and applicable obligations evolve.</p></section>
+    <section class="security-note"><strong>An important limitation</strong><p>No online service can guarantee absolute security. This page describes current controls, not a certification or guarantee. We review them as the platform, threat landscape and applicable obligations evolve.</p></section>
   </main>
 
   <footer><div class="footer-brand"><div class="footer-lockup"><img src="/brand-icon.png" alt="" /><span><b>saia</b> <em>da teoria</em></span></div><p>Personal finance, clearly organised.</p></div><div><strong>Product</strong><a href="/#features">Features</a><a href="/#how-it-works">How it works</a><a href="mailto:contact@saiadateoria.com?subject=Request%20access%20to%20Saia%20da%20Teoria">Request access</a><a href="https://app.saiadateoria.com">Sign in</a></div><div><strong>Trust</strong><a href="/security">Security</a><a href="/privacy">Privacy</a><a href="/cdr-policy">CDR Policy</a></div><div><strong>Company</strong><a href="/terms">Terms</a><a href="mailto:contact@saiadateoria.com">Contact</a><span>GPF IT SOLUTIONS PTY LTD<br />ABN 57 638 578 140</span></div><div class="copyright">© <span id="year"></span> Saia da Teoria. All rights reserved.</div></footer>
-  <script src="/script.js?v=8"></script>
+  <script src="/script.js?v=9"></script>
 </body>
 </html>

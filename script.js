@@ -1,5 +1,9 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+document.querySelectorAll('a[href="/cdr-policy"]').forEach((link) => {
+  if (link.textContent.trim() === 'CDR Policy') link.textContent = 'CDR readiness';
+});
+
 const mainContent = document.querySelector('main');
 if (mainContent) {
   mainContent.id = 'main-content';
