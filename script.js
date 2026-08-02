@@ -4,6 +4,13 @@ document.querySelectorAll('a[href="/cdr-policy"]').forEach((link) => {
   if (link.textContent.trim() === 'CDR Policy') link.textContent = 'CDR readiness';
 });
 
+document.querySelectorAll('footer > div').forEach((column) => {
+  const heading = column.querySelector('strong')?.textContent.trim();
+  if (heading === 'Product') column.innerHTML = '<strong>Product</strong><a href="/features">Overview</a><a href="/net-worth">Net worth</a><a href="/cash-flow">Cash flow</a><a href="https://app.saiadateoria.com">Sign in</a>';
+  if (heading === 'Trust') column.innerHTML = '<strong>Trust</strong><a href="/security">Security</a><a href="/privacy">Privacy</a><a href="/cdr-policy">CDR readiness</a>';
+  if (heading === 'Company') column.innerHTML = '<strong>Company</strong><a href="/about">About</a><a href="/contact">Contact</a><a href="/terms">Terms</a><span>GPF IT SOLUTIONS PTY LTD<br>ABN 57 638 578 140</span>';
+});
+
 const mainContent = document.querySelector('main');
 if (mainContent) {
   mainContent.id = 'main-content';
@@ -46,9 +53,11 @@ if (navigation) {
   mobileMenu.setAttribute('aria-hidden', 'true');
   mobileMenu.inert = true;
   mobileMenu.innerHTML = `
-    <a href="/#features">Features</a>
+    <a href="/features">Product</a>
     <a href="/#how-it-works">How it works</a>
     <a href="/security">Security</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
     <a href="mailto:contact@saiadateoria.com?subject=Request%20access%20to%20Saia%20da%20Teoria">Request access</a>
