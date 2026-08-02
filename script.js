@@ -1,9 +1,21 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const mainContent = document.querySelector('main');
+if (mainContent) {
+  mainContent.id = 'main-content';
+  mainContent.tabIndex = -1;
+  const skipLink = document.createElement('a');
+  skipLink.className = 'skip-link';
+  skipLink.href = '#main-content';
+  skipLink.textContent = 'Skip to main content';
+  document.body.prepend(skipLink);
+}
+
 const transition = document.createElement('div');
 transition.className = 'page-transition';
 transition.setAttribute('aria-hidden', 'true');
 transition.setAttribute('role', 'status');
+transition.setAttribute('aria-live', 'polite');
 transition.innerHTML = `
   <div class="transition-brand">
     <div class="transition-lockup"><img src="/brand-icon.png" alt="" /><span><b>saia</b> <em>da teoria</em></span></div>
@@ -28,6 +40,7 @@ if (navigation) {
   mobileMenu.id = 'mobile-menu';
   mobileMenu.className = 'mobile-menu';
   mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenu.inert = true;
   mobileMenu.innerHTML = `
     <a href="/#features">Features</a>
     <a href="/#how-it-works">How it works</a>
@@ -42,6 +55,7 @@ if (navigation) {
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Open menu');
     mobileMenu.setAttribute('aria-hidden', 'true');
+    mobileMenu.inert = true;
     document.body.classList.remove('mobile-menu-open');
   };
 
@@ -51,6 +65,7 @@ if (navigation) {
     menuButton.setAttribute('aria-expanded', String(opening));
     menuButton.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
     mobileMenu.setAttribute('aria-hidden', String(!opening));
+    mobileMenu.inert = !opening;
     document.body.classList.toggle('mobile-menu-open', opening);
   });
 
@@ -58,7 +73,7 @@ if (navigation) {
     if (event.target.closest('a')) closeMenu();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
       closeMenu();
       menuButton.focus();
     }
