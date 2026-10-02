@@ -85,3 +85,13 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
    while its matching on-page section (#features/#security) is in view, the same
    way the standalone /features and /security pages mark themselves current. */
 .nav-links a.is-scroll-active{color:#fff;font-weight:700}
+
+/* Hero stat card: the full dashboard screenshot renders too small in the hero to
+   actually read (it's a whole interface shrunk to ~40% scale). This floats one
+   real, legible number on top of it so the hero makes its point at a glance,
+   the way PocketSmith's hero leads with a single readable spending widget. */
+.hero-stat-card{position:absolute;left:20px;bottom:20px;z-index:3;width:210px;padding:18px 20px;border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hero-stat-card span{display:block;margin-bottom:8px;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.hero-stat-card strong{display:block;font-size:28px;letter-spacing:-.03em;color:var(--green)}
+.hero-stat-card small{display:block;margin-top:10px;color:var(--muted);font-size:12px;line-height:1.5}
+@media(max-width:640px){.hero-stat-card{left:14px;bottom:14px;width:auto;right:14px;padding:16px 18px}}
