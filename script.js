@@ -49,6 +49,31 @@ if (siteHeader) {
   window.addEventListener('scroll', updateHeaderBackground, { passive: true });
 }
 
+// Scroll-active nav: the header nav points to standalone pages (/features,
+// /security), but the homepage also covers that same ground in its own
+// #features and #security sections. While one of those sections is in view,
+// highlight the matching nav link, the same way the standalone pages mark
+// themselves current with aria-current.
+const scrollNavTargets = [
+  { id: 'features', href: '/features' },
+  { id: 'security', href: '/security' },
+]
+  .map((t) => ({ ...t, el: document.getElementById(t.id) }))
+  .filter((t) => t.el);
+
+if (scrollNavTargets.length) {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const updateActiveNav = () => {
+    const probeY = 140;
+    const current = [...scrollNavTargets].reverse().find((t) => t.el.getBoundingClientRect().top <= probeY);
+    navLinks.forEach((a) => {
+      a.classList.toggle('is-scroll-active', !!current && a.getAttribute('href') === current.href);
+    });
+  };
+  updateActiveNav();
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+}
+
 const navigation = document.querySelector('.nav');
 if (navigation) {
   const menuButton = document.createElement('button');
