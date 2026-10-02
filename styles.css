@@ -64,3 +64,9 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
 @media(max-width:640px){.contact-form-section{padding:55px 22px 80px}.form-row{grid-template-columns:1fr}}
 .cf-turnstile{margin-top:-6px}
 #contact-form button[type="submit"]:disabled{opacity:.5;pointer-events:none}
+.not-found-hero{min-height:calc(100vh - 86px);padding:150px max(24px,calc((100vw - 760px)/2)) 120px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:22px;background:var(--navy);color:#fff}
+.not-found-hero span{color:#8d9bc2;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.not-found-hero h1{margin:0;font-size:clamp(70px,11vw,130px);line-height:.9;letter-spacing:-.06em;color:var(--gold2)}
+.not-found-hero p{max-width:480px;color:#aeb6c6;font-size:19px;line-height:1.65}
+.not-found-actions{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+@media(max-width:640px){.not-found-hero{padding:130px 22px 90px}}
