@@ -123,3 +123,16 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
    heights were sized for 680x410 and would crop labels off the sides. */
 .feature-tall .product-crop.product-crop-flow,.feature-half .product-crop.product-crop-allocation{height:auto}
 .product-crop-flow img,.product-crop-allocation img{height:auto}
+
+/* Features page: alternating copy/image rows */
+.feature-row{padding:110px max(24px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center;background:#fff}
+.feature-row:nth-of-type(even){background:var(--paper)}
+.feature-row.reverse .feature-row-copy{order:2}
+.feature-row-copy h2{margin-bottom:16px;line-height:1.08;letter-spacing:-.045em;font-size:clamp(24px,2.8vw,40px)}
+.feature-row-copy>p:not(.section-label){max-width:480px;color:var(--muted);font-size:18px;line-height:1.65}
+.ticks{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.ticks li{position:relative;padding-left:28px;color:#3b4150;line-height:1.5}
+.ticks li:before{content:"";position:absolute;left:0;top:.35em;width:14px;height:8px;border-left:2px solid #8d6120;border-bottom:2px solid #8d6120;transform:rotate(-45deg) scale(.9)}
+.feature-row-shot{margin:0;overflow:hidden;border:1px solid #30394c;border-radius:18px;background:#1d2540;box-shadow:0 30px 70px rgba(24,32,48,.16)}
+.feature-row-shot img{display:block;width:100%;height:auto}
+@media(max-width:900px){.feature-row{grid-template-columns:1fr;gap:44px;padding-block:80px}.feature-row.reverse .feature-row-copy{order:initial}}
