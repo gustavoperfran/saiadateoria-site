@@ -118,3 +118,8 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
 .section-label,.feature-copy>span,.value-grid span,.detail-points span,.contact-options span,.product-index span,.security-principles span,.details-list>article>span{color:#8d6120}
 .section-label.light,.eyebrow{color:var(--gold2)}
 [id]{scroll-margin-top:100px}
+
+/* The new product crops have their own aspect ratios (700x240 and 700x225); the old fixed
+   heights were sized for 680x410 and would crop labels off the sides. */
+.feature-tall .product-crop.product-crop-flow,.feature-half .product-crop.product-crop-allocation{height:auto}
+.product-crop-flow img,.product-crop-allocation img{height:auto}
