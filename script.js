@@ -1,16 +1,5 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.querySelectorAll('a[href="/cdr-policy"]').forEach((link) => {
-  if (link.textContent.trim() === 'CDR Policy') link.textContent = 'CDR readiness';
-});
-
-document.querySelectorAll('footer > div').forEach((column) => {
-  const heading = column.querySelector('strong')?.textContent.trim();
-  if (heading === 'Product') column.innerHTML = '<strong>Product</strong><a href="/features">Overview</a><a href="/net-worth">Net worth</a><a href="/cash-flow">Cash flow</a><a href="https://app.saiadateoria.com" target="_blank" rel="noopener">Sign in</a>';
-  if (heading === 'Trust') column.innerHTML = '<strong>Trust</strong><a href="/security">Security</a><a href="/privacy">Privacy</a><a href="/cdr-policy">CDR readiness</a>';
-  if (heading === 'Company') column.innerHTML = '<strong>Company</strong><a href="/about">About</a><a href="/contact">Contact</a><a href="/terms">Terms</a><span>GPF IT SOLUTIONS PTY LTD<br>ABN 57 638 578 140</span>';
-});
-
 const mainContent = document.querySelector('main');
 if (mainContent) {
   mainContent.id = 'main-content';

@@ -111,3 +111,10 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
    the section below it — a 94-246px gap depending on the page. Letting each
    hero size to its own content removes that gap instead of leaving it behind. */
 .hero,.content-hero,.product-hero,.detail-hero,.security-hero{min-height:0}
+
+/* Accessibility fixes found in the audit: the gold wordmark and eyebrow/number labels were
+   1.4-4:1 on the light pages (AA needs 4.5:1), and in-page anchors landed under the fixed header. */
+.brand-light .brand-wordmark em{color:#8d6120}
+.section-label,.feature-copy>span,.value-grid span,.detail-points span,.contact-options span,.product-index span,.security-principles span,.details-list>article>span{color:#8d6120}
+.section-label.light,.eyebrow{color:var(--gold2)}
+[id]{scroll-margin-top:100px}
