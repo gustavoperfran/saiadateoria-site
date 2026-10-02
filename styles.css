@@ -73,8 +73,8 @@ footer{padding:75px max(24px,calc((100vw - 1180px)/2)) 30px;display:grid;grid-te
 
 /* Heading scale standardization: every page hero and section title now share one
    consistent size instead of each page having its own (and in one case, 130px) value. */
-.hero h1,.content-hero h1,.detail-hero h1,.product-hero h1,.security-hero h1,.legal-shell h1,.not-found-hero h1{font-size:clamp(42px,5vw,72px)}
-.intro h2,.how h2,.security h2,.final-cta h2,.content-split h2,.beta-boundary h2,.company-record h2,.details-heading h2,.reporting-card h2{font-size:clamp(32px,3.6vw,52px)}
+.hero h1,.content-hero h1,.detail-hero h1,.product-hero h1,.security-hero h1,.legal-shell h1,.not-found-hero h1{font-size:clamp(30px,3.8vw,52px)}
+.intro h2,.how h2,.security h2,.final-cta h2,.content-split h2,.beta-boundary h2,.company-record h2,.details-heading h2,.reporting-card h2{font-size:clamp(22px,2.6vw,36px)}
 
 /* Consistent gap below the fixed header: every page's top section used a different
    padding-top (100px to 190px), so the content started at a different depth on
