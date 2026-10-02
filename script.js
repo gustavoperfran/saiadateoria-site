@@ -79,9 +79,8 @@ if (navigation) {
   mobileMenu.setAttribute('aria-hidden', 'true');
   mobileMenu.inert = true;
   mobileMenu.innerHTML = `
-    <a href="/features">Product</a>
+    <a href="/features">Features</a>
     <a href="/security">Security</a>
-    <a href="/about">About</a>
     <a href="/contact">Contact</a>
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
