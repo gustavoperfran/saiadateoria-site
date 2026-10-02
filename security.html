@@ -43,7 +43,7 @@
       <div class="details-list">
         <article><span>01</span><div><h3>Authentication and sessions</h3><p>Authentication is handled by a specialist identity provider. Application access tokens are kept in memory rather than persistent browser storage, reducing exposure after the browser session ends.</p></div></article>
         <article><span>02</span><div><h3>Workspace isolation</h3><p>Every financial-data request is scoped to the authenticated customer workspace. API tenant checks are backed by database Row Level Security, and authorised administrative access is role-restricted and logged.</p></div></article>
-        <article><span>03</span><div><h3>Bank connectivity status</h3><p>Bank connectivity remains an administrator-only pre-production pilot. The implementation keeps provider credentials server-side and validates signed webhook events, but live CDR connections will not be offered until an approved access arrangement is in place.</p></div></article>
+        <article><span>03</span><div><h3>Bank connectivity status</h3><p>Bank connectivity remains an administrator-only pre-production pilot. The implementation keeps provider credentials server-side. Signed webhook verification is built but is still being validated against the live provider, and live CDR connections will not be offered until an approved access arrangement is in place.</p></div></article>
         <article><span>04</span><div><h3>Data minimisation and monitoring</h3><p>We limit collection to information needed for requested product features. Security-relevant administrative access and operational events are recorded to support investigation and incident response.</p></div></article>
       </div>
     </section>
