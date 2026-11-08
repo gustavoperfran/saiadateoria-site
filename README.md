@@ -12,6 +12,6 @@ The project deploys to Vercel. The private application is hosted separately at [
 
 ## Branches
 
-- `main` is production and deploys on every push. It only receives PRs from `develop`, except hotfixes (`hotfix/<short-desc>`, which must also land on `develop`).
-- Feature, fix and chore branches open their PR against `develop`; release with one `develop` -> `main` PR.
+- `main` is production and deploys on every push. It only receives PRs from `develop`, except hotfixes (`hotfix/<short-desc>`, which must also land on `develop`). Never push directly to `main`.
+- Work goes straight to `develop` (staging), no PR needed; release with one `develop` -> `main` PR.
 - The "Main only from develop" check (`.github/workflows/branch-rule.yml`) fails any other PR into `main`.
