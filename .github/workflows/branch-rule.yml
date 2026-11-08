@@ -1,0 +1,23 @@
+name: Branch rule
+
+# main is production and only receives PRs from develop (staging), except hotfixes.
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited]
+
+jobs:
+  main-source:
+    name: Main only from develop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if [ "$HEAD_REF" = "develop" ] || [[ "$HEAD_REF" == hotfix/* ]]; then
+            echo "OK: $HEAD_REF -> main"
+          else
+            echo "::error::PRs into main must come from develop (or a hotfix/* branch). Got: $HEAD_REF. Open this PR against develop instead."
+            exit 1
+          fi
